@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Diet Planner</title>
+    <link rel="stylesheet" href="styleai.css">
+</head>
+<body>
+    <nav>
+        <div class="nav__logo">
+          <a href="#"><img src="images/logo.png" alt="logo" /></a>
+        </div>
+        <ul class="nav__links">
+          <li class="link"><a href="index.html">Home</a></li>
+          <li class="link"><a href="dietai.html">Personalized Diet</a></li>
+          <li class="link"><a href="#">Services</a></li>
+          <li class="link"><a href="bmicalc.html">BMI Calculator</a></li>
+          <li class="link"><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <button class="btn" id="btn" onclick="document.getElementById('btn')"><a href="signup.html">Sign  Up</a></button>
+    </nav>
+  
+  <header class="section__container header__container">
+        <div class="header__content">
+          <span class="bg__blur"></span>
+          <span class="bg__blur header__blur"></span> 
+
+    <div class="form-container" id="form-container">
+        <h1>Personalized Diet Planner</h1>
+        <form id="dietForm">
+            <!-- Form Fields -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" required><br>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" required><br>
+            
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" required><br>
+            
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" required><br>
+            
+            <label for="activityLevel">Activity Level:</label>
+            <select id="activityLevel">
+                <option value="sedentary">Not active</option>
+                <option value="lightly active">Lightly active</option>
+                <option value="active">Active</option>
+                <option value="very active">Very active</option>
+            </select><br>
+            
+            <label for="goal">Goal:</label>
+            <select id="goal">
+                <option value="weight loss">Weight Loss</option>
+                <option value="muscle gain">Muscle Gain</option>
+                <option value="maintenance">Maintenance</option>
+            </select><br>
+            
+            <label for="dietaryPreferences">Dietary Preferences:</label>
+            <input type="text" id="dietaryPreferences"><br>
+            
+            <label for="allergies">Allergies (if any , otherwise None):</label>
+            <input type="text" id="allergies"><br>
+            
+            <button type="button" onclick="generatePlan()">Generate Plan</button>
+        </form>
+    </div>
+
+    <div class="form-container" id="dashboard" style="display: none;">
+        <h1>Welcome, <span id="userName"></span>!</h1>
+        <h2>Here is Your Meal Plan</h2>
+        <p>Daily Caloric Needs: <span id="userCalories"></span> calories</p>
+        <ul class="mealPlan"id="mealPlan"></ul>
+        <button onclick="showShoppingList()">View Shopping List</button><br><br>
+        <button onclick="resetForm()">Edit Profile</button>
+    </div>
+
+    <div class="form-container" id="shoppingList" style="display: none;">
+        <h2>Shopping List</h2>
+        <ul class="mealPlan" id="shoppingItems"></ul>
+        <button onclick="showDashboard()">Back to Dashboard</button>
+    </div>
+    
+   </header>
+    <script src="scriptai.js"></script>
+</body>
+</html>
